@@ -17,8 +17,10 @@
     "require": {
 		"php": ">=7.4.0"
 	},
-    "psr-4": {
-        "Digitcon\\": "src/Digitcon/"
+    "autoload": {
+        "psr-4": {
+            "Digitcon\\": "src/Digitcon/"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

@@ -1,0 +1,16 @@
+{
+    "name": "m4you/digitcon",
+	"description": "Library with base tools for working with simple binary digits",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mykola Kovalskyi",
+            "email": "it.my.ko@gmail.com"
+        }
+    ],
+	"minimum-stability": "dev",
+    "require": {
+		"php": ">=7.4.0"
+	}
+}

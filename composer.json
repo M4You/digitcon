@@ -3,14 +3,23 @@
 	"description": "Library with base tools for working with simple binary digits",
     "type": "library",
     "license": "MIT",
+    "support": {
+        "type": "git",
+        "url": "https://github.com/M4You/digitcon",
+        "reference": "master"
+    },
     "authors": [
         {
             "name": "Mykola Kovalskyi",
             "email": "it.my.ko@gmail.com"
         }
     ],
-	"minimum-stability": "dev",
     "require": {
 		"php": ">=7.4.0"
-	}
+	},
+    "psr-4": {
+        "Digitcon\\": "src/Digitcon/"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -4,14 +4,10 @@ namespace Digitcon\Types;
 
 use Digitcon\Types\Numeric;
 
-class Decimal extends Numeric
+class Bin extends Numeric
 {
     public static function validate(string $original): bool
     {
-        if ((int)substr($original, 0, 1) === 0) {
-            return false;
-        }
-
-        return true;
+        return preg_match_all("/[^0-1]/m", $original, $matches, PREG_SET_ORDER, 0) === 0;
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Digitcon\Types;
 
-use Exception;
 use Digitcon\Exceptions\InvalidValuePassedException;
 
 abstract class Numeric
@@ -25,7 +24,7 @@ abstract class Numeric
         return str_split($this->original);
     }
 
-    public function toString(): string
+    public function __toString(): string
     {
         return $this->original;
     }

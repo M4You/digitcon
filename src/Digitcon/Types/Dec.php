@@ -9,6 +9,8 @@ use Digitcon\Types\Numeric;
 
 class Dec extends Numeric implements ConveratableToBin, ConveratableToOct, ConveratableToHex
 {
+    protected static string $label = 'dec';
+
     protected static function validate(string $original): bool
     {
         if (strlen($original) > 1 && (int)substr($original, 0, 1) === 0) {

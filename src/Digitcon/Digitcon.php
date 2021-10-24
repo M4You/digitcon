@@ -2,9 +2,11 @@
 
 namespace Digitcon;
 
+use Digitcon\Types\Bin;
 use Digitcon\Types\Dec;
 use Digitcon\Types\Numeric;
 use Digitcon\Convertable\ConveratableToBin;
+use Digitcon\Convertable\ConveratableToDec;
 use Digitcon\Convertable\ConveratableToHex;
 use Digitcon\Convertable\ConveratableToOct;
 use Digitcon\Exceptions\UnavailableNumericTypeException;
@@ -14,7 +16,8 @@ class Digitcon
     protected $numeric;
 
     protected $availableNumericTypes = [
-        Dec::class
+        Dec::class,
+        Bin::class
     ];
 
     public function __construct($input, $type = Dec::class)
@@ -48,6 +51,10 @@ class Digitcon
     {
         $result = [];
 
+        if ($this->numeric instanceof ConveratableToDec) {
+            $result['dec'] = $this->numeric->convertToDec()->toString();
+        }
+
         if ($this->numeric instanceof ConveratableToBin) {
             $result['bin'] = $this->numeric->convertToBin()->toString();
         }
@@ -66,7 +73,7 @@ class Digitcon
     public function toArray(): array
     {
         return [
-            'dec' => $this->numeric->toString(),
+            $this->numeric->getLabel() => $this->numeric->toString(),
             'converted' => $this->convertToAll()
         ];
     }

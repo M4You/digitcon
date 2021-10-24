@@ -7,6 +7,7 @@ use Digitcon\Exceptions\InvalidValuePassedException;
 abstract class Numeric
 {
     protected string $original;
+    protected static string $label;
 
     public function __construct(string $numeric)
     {
@@ -19,14 +20,14 @@ abstract class Numeric
 
     protected static abstract function validate(string $original): bool;
 
-    public function toArray(): array
-    {
-        return str_split($this->original);
-    }
-
     public function toString(): string
     {
         return $this->original;
+    }
+
+    public static function getLabel(): string
+    {
+        return static::$label;
     }
 
     public function __toString(): string

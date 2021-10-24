@@ -1,17 +1,20 @@
 {
     "name": "m4you/digitcon",
 	"description": "Library with base tools for working with simple binary digits",
+    "version": "0.0.1-dev",
+    "keywords": [],
     "type": "library",
     "license": "MIT",
     "support": {
-        "type": "git",
-        "url": "https://github.com/M4You/digitcon",
-        "reference": "master"
+        "email": "it.my.ko@gmail.com",
+        "source": "https://github.com/M4You/digitcon"
     },
     "authors": [
         {
             "name": "Mykola Kovalskyi",
-            "email": "it.my.ko@gmail.com"
+            "email": "it.my.ko@gmail.com",
+            "homepage": "https://kovalskyi.dev",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -23,5 +26,6 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "readme": "README.md"
 }

@@ -6,10 +6,10 @@ Library with base tools for working with simple binary digits
 - - [x] To Binary
 - - [x] To Octal
 - - [x] To Hexadecimal
-- [ ] Binary
-- - [ ] To Decimal
-- - [ ] To Octal
-- - [ ] To Hexadecimal
+- [x] Binary
+- - [x] To Decimal
+- - [x] To Octal
+- - [x] To Hexadecimal
 - [ ] Octal
 - - [ ] To Decimal
 - - [ ] To Binary

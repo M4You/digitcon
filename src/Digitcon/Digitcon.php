@@ -2,10 +2,7 @@
 
 namespace Digitcon;
 
-use Digitcon\Types\Bin;
 use Digitcon\Types\Dec;
-use Digitcon\Types\Hex;
-use Digitcon\Types\Oct;
 use Digitcon\Types\Numeric;
 use Digitcon\Convertable\ConveratableToBin;
 use Digitcon\Convertable\ConveratableToHex;
@@ -52,17 +49,25 @@ class Digitcon
         $result = [];
 
         if ($this->numeric instanceof ConveratableToBin) {
-            $result[] = $this->numeric->convertToBin();
+            $result['bin'] = $this->numeric->convertToBin()->toString();
         }
 
         if ($this->numeric instanceof ConveratableToOct) {
-            $result[] = $this->numeric->convertToOct();
+            $result['oct'] = $this->numeric->convertToOct()->toString();
         }
 
         if ($this->numeric instanceof ConveratableToHex) {
-            $result[] = $this->numeric->convertToHex();
+            $result['hex'] = $this->numeric->convertToHex()->toString();
         }
 
         return $result;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'dec' => $this->numeric->toString(),
+            'converted' => $this->convertToAll()
+        ];
     }
 }

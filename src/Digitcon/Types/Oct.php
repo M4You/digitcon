@@ -6,7 +6,7 @@ use Digitcon\Types\Numeric;
 
 class Oct extends Numeric
 {
-    public static function validate(string $original): bool
+    protected static function validate(string $original): bool
     {
         return preg_match_all("/[^0-7]/m", $original, $matches, PREG_SET_ORDER, 0) === 0;
     }

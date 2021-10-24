@@ -9,7 +9,7 @@ use Digitcon\Types\Numeric;
 
 class Dec extends Numeric implements ConveratableToBin, ConveratableToOct, ConveratableToHex
 {
-    public static function validate(string $original): bool
+    protected static function validate(string $original): bool
     {
         if (strlen($original) > 1 && (int)substr($original, 0, 1) === 0) {
             return false;

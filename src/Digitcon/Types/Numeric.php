@@ -17,15 +17,20 @@ abstract class Numeric
         }
     }
 
-    public static abstract function validate(string $original): bool;
+    protected static abstract function validate(string $original): bool;
 
     public function toArray(): array
     {
         return str_split($this->original);
     }
 
-    public function __toString(): string
+    public function toString(): string
     {
         return $this->original;
+    }
+
+    public function __toString(): string
+    {
+        return $this->toString();
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Digitcon\Types;
 
-use Digitcon\Convertable\ConveratableToDec;
-use Digitcon\Convertable\ConveratableToHex;
-use Digitcon\Convertable\ConveratableToOct;
+use Digitcon\Convertation\ConveratableToDec;
+use Digitcon\Convertation\ConveratableToHex;
+use Digitcon\Convertation\ConveratableToOct;
 use Digitcon\Types\Numeric;
 
 class Bin extends Numeric implements ConveratableToDec, ConveratableToOct, ConveratableToHex

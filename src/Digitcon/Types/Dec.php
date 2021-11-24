@@ -2,9 +2,9 @@
 
 namespace Digitcon\Types;
 
-use Digitcon\Convertable\ConveratableToBin;
-use Digitcon\Convertable\ConveratableToHex;
-use Digitcon\Convertable\ConveratableToOct;
+use Digitcon\Convertation\ConveratableToBin;
+use Digitcon\Convertation\ConveratableToHex;
+use Digitcon\Convertation\ConveratableToOct;
 use Digitcon\Types\Numeric;
 
 class Dec extends Numeric implements ConveratableToBin, ConveratableToOct, ConveratableToHex

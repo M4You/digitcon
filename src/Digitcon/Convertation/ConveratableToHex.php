@@ -1,6 +1,6 @@
 <?php
 
-namespace Digitcon\Convertable;
+namespace Digitcon\Convertation;
 
 use Digitcon\Types\Hex;
 

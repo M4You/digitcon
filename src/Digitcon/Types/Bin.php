@@ -32,7 +32,7 @@ class Bin extends Numeric implements ConveratableToDec, ConveratableToOct, Conve
         $originalAsArr = array_reverse($originalAsArr);
 
         foreach ($originalAsArr as $k => $v) {
-            $result += $v ? pow(2, $k) : 0;
+            $result += $v ? $v * pow(2, $k) : 0;
         }
 
         return new Dec($result);
@@ -55,7 +55,7 @@ class Bin extends Numeric implements ConveratableToDec, ConveratableToOct, Conve
         $originalAsArr = array_reverse($originalAsArr);
 
         foreach ($originalAsArr as $v) {
-            $temp += $v ? pow(2, $step) : 0;
+            $temp += $v ? $v * pow(2, $step) : 0;
 
             if ($step == 2) {
                 array_unshift($result, $temp);
@@ -94,7 +94,7 @@ class Bin extends Numeric implements ConveratableToDec, ConveratableToOct, Conve
         $replace = [10 => 'A', 11 => 'B', 12 => 'C', 13 => 'D', 14 => 'E', 15 => 'F'];
 
         foreach ($originalAsArr as $v) {
-            $temp += $v ? pow(2, $step) : 0;
+            $temp += $v ? $v * pow(2, $step) : 0;
 
             if ($step == 3) {
                 array_unshift($result, array_key_exists($temp, $replace) ? $replace[$temp] : $temp);

@@ -22,10 +22,18 @@
 	},
     "autoload": {
         "psr-4": {
-            "Digitcon\\": "src/Digitcon/"
+            "Digitcon\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Digitcon\\Tests\\": "tests"
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "readme": "README.md"
+    "readme": "README.md",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
 }

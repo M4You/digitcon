@@ -1,7 +1,7 @@
 {
     "name": "m4you/digitcon",
 	"description": "Library with base tools for working with simple binary digits",
-    "version": "0.0.2-dev",
+    "version": "0.0.3-dev",
     "keywords": [],
     "type": "library",
     "license": "MIT",

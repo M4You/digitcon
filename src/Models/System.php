@@ -15,8 +15,9 @@ class System
 
     public function __construct(int $value)
     {
-        $this->setValue($value);
+        self::validate($value);
 
+        $this->value = $value;
         $this->digitSize = $this->value - 1;
         $this->regexPattern = $this->buildRegexPattern();
     }
@@ -31,14 +32,7 @@ class System
         return $this->regexPattern;
     }
 
-    protected function setValue(int $value): void
-    {
-        $this->validateValue($value);
-
-        $this->value = $value;
-    }
-
-    protected function validateValue(int $value): void
+    protected static function validate(int $value): void
     {
         if ($value < self::MIN_VALUE) {
             throw new InvalidArgumentException("Passed value '{$value}' less then allowable min value " . self::MIN_VALUE);

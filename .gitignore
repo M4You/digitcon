@@ -2,3 +2,5 @@ vendor
 composer.lock
 test.php
 test2.php
+.phpunit.result.cache
+.vscode/

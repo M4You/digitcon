@@ -1,7 +1,7 @@
 {
     "name": "m4you/digitcon",
 	"description": "Library with base tools for working with simple binary digits",
-    "version": "0.0.1-dev",
+    "version": "0.0.2-dev",
     "keywords": [],
     "type": "library",
     "license": "MIT",
@@ -35,5 +35,9 @@
     "readme": "README.md",
     "require-dev": {
         "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "/vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     }
 }

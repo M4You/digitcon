@@ -16,7 +16,6 @@ class SystemTest extends TestCase
     public function testCreateInstanceThrowExceptionWithLessValue()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage("Passed value '1' less then allowable min value 2");
 
         $system = new System(1);
     }
@@ -24,7 +23,6 @@ class SystemTest extends TestCase
     public function testCreateInstanceThrowExceptionWithGreaterValue()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage("Passed value '37' greater then allowable max value 36");
 
         $system = new System(37);
     }

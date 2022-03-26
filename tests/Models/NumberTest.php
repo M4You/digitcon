@@ -16,7 +16,6 @@ class NumberTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalidSystemArgumentType()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $system argument has unsupported type. Supported only (int) type or Digitcon\Models\System::class instance');
 
         new Number(1010, null);
     }
@@ -24,7 +23,6 @@ class NumberTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalidNumberArgumentType()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $number argument has unsupported type. Supported only (int) or (string) types');
 
         new Number(null, 4);
     }
@@ -32,7 +30,6 @@ class NumberTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalidNumberForSystem()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $number is invalid for passed $system');
 
         new Number(18, 8);
     }

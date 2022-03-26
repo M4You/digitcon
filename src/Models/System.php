@@ -15,7 +15,9 @@ class System
 
     public function __construct(int $value)
     {
-        self::validate($value);
+        if ($value < self::MIN_VALUE || $value > self::MAX_VALUE) {
+            throw new InvalidArgumentException('Value is out of range');
+        }
 
         $this->value = $value;
         $this->digitSize = $this->value - 1;
@@ -32,15 +34,9 @@ class System
         return $this->regexPattern;
     }
 
-    protected static function validate(int $value): void
+    public function __toString(): string
     {
-        if ($value < self::MIN_VALUE) {
-            throw new InvalidArgumentException("Passed value '{$value}' less then allowable min value " . self::MIN_VALUE);
-        }
-
-        if ($value > self::MAX_VALUE) {
-            throw new InvalidArgumentException("Passed value '{$value}' greater then allowable max value " . self::MAX_VALUE);
-        }
+        return (string)$this->value;
     }
 
     protected function buildRegexPattern(): string

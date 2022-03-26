@@ -2,43 +2,59 @@
 
 namespace Digitcon\Models;
 
-use Digitcon\Models\System;
+use Exception;
 use InvalidArgumentException;
 
 class Digit
 {
-    public const MAX_SIZE = System::MAX_VALUE - 1;
-    public const MIN_CHAR_DIGIT = 10;
+    public const MIN_SIZE = 0;
+    public const MAX_SIZE = 35;
+    public const MIN_CHAR = 10;
 
-    protected int $digit;
     protected int $value;
+    protected bool $isChar = false;
+    protected string $stringValue;
 
     public function __construct($value)
     {
-        self::validate($value);
+        $type = gettype($value);
+
+        if (!in_array($type, ['string', 'integer'])) {
+            throw new InvalidArgumentException('Unsupported type');
+        }
+
+        if ($type === 'string') {
+            $value = trim($value);
+
+            if (is_numeric($value)) {
+                try {
+                    $value = (int)$value;
+                    $type = 'integer';
+                } catch (Exception $e) {
+                    throw new InvalidArgumentException('String is incorrect');
+                }
+            } elseif (!(ctype_alpha($value) && strlen($value) === 1)) {
+                throw new InvalidArgumentException('String is incorrect');
+            } else {
+                $this->value = ord(strtoupper($value)) - 65 + self::MIN_CHAR;
+                $this->stringValue = $value;
+
+                return;
+            }
+        }
+
+
+        if ($value < self::MIN_SIZE || $value > self::MAX_SIZE) {
+            throw new InvalidArgumentException('Integer is out of range');
+        }
 
         $this->value = $value;
+        $this->stringValue = $value >= self::MIN_CHAR
+            ? chr($value - self::MIN_CHAR + 65) : (string)$value;
     }
 
     public function __toString(): string
     {
-        if ($this->value > self::MIN_CHAR_DIGIT) {
-            return chr($this->value - self::MIN_CHAR_DIGIT + 65);
-        }
-
-        return (string)$this->value;
-    }
-
-    protected static function validate($value): void
-    {
-        if (!(is_int($value) || is_string($value))) {
-            throw new InvalidArgumentException('Passed $digit argument has unsupported type. Supported only (int) or (string) types');
-        }
-
-        if (is_int($value) && ($value < 0 || $value > self::MAX_SIZE)) {
-            throw new InvalidArgumentException('Passed $digit argument is out of supported range');
-        } elseif (is_string($value) && (strlen($value) != 1 || !ctype_upper($value))) {
-            throw new InvalidArgumentException('Passed $digit argument is invalid string value');
-        }
+        return $this->stringValue;
     }
 }

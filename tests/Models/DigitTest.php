@@ -16,7 +16,6 @@ class DigitTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalidArgumentType()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $digit argument has unsupported type. Supported only (int) or (string) types');
 
         $digit = new Digit(true);
     }
@@ -24,7 +23,6 @@ class DigitTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalideDigitValue()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $digit argument is out of supported range');
 
         $digit = new Digit(36);
     }
@@ -32,7 +30,6 @@ class DigitTest extends TestCase
     public function testCreateInstanceThrowExceptionWithInvalidStringValue()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('Passed $digit argument is invalid string value');
 
         $digit = new Digit('AA');
     }
